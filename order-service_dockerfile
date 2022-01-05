@@ -1,0 +1,5 @@
+FROM jdk-1_8_201:base
+ADD target/macys-order-service.jar /macys-order-service.jar
+ENTRYPOINT ["usr/bin/java"]
+CMD ["-jar", "/macys-order-service.jar"]
+EXPOSE 91
