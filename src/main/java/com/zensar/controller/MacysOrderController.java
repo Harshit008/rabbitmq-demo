@@ -31,6 +31,7 @@ public class MacysOrderController {
 	@GetMapping("/changeOrderStatus")
 	public ResponseEntity<List<XmlFulfilmentOrderDomain>> updateOrderStatus(){
 		List<XmlFulfilmentOrderDomain> list = orderService.changeOrderStatus();
+		logger.info("Affected records are : "+list);
 		return new ResponseEntity<List<XmlFulfilmentOrderDomain>>(list, HttpStatus.OK);
 		
 	}
