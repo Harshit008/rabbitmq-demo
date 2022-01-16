@@ -1,13 +1,17 @@
 package com.zensar.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zensar.domain.XmlFulfilmentOrderDomain;
 import com.zensar.services.OrderService;
 
 @RequestMapping("/order-service")
@@ -25,9 +29,9 @@ public class MacysOrderController {
 	}
 	
 	@GetMapping("/changeOrderStatus")
-	public ResponseEntity<String> updateOrderStatus(){
-		orderService.changeOrderStatus();
-		return null;
+	public ResponseEntity<List<XmlFulfilmentOrderDomain>> updateOrderStatus(){
+		List<XmlFulfilmentOrderDomain> list = orderService.changeOrderStatus();
+		return new ResponseEntity<List<XmlFulfilmentOrderDomain>>(list, HttpStatus.OK);
 		
 	}
 }

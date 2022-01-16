@@ -15,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
 	private XmlFulfilmentOrderRepo xmlOrderRepo;
 
 	@Override
-	public void changeOrderStatus() {
+	public List<XmlFulfilmentOrderDomain> changeOrderStatus() {
 		List<XmlFulfilmentOrderDomain> inProcessOrderList = xmlOrderRepo.getInProcessOrder();
 		for(XmlFulfilmentOrderDomain xmlOrder: inProcessOrderList) {
 			if(xmlOrder.getOrderStatusDescription().equals("IN_PROCESS")) {
@@ -23,6 +23,7 @@ public class OrderServiceImpl implements OrderService {
 				xmlOrderRepo.saveAndFlush(xmlOrder);
 			}
 		}
+		return inProcessOrderList;
 	}
 
 }
