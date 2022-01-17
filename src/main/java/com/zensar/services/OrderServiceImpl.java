@@ -26,4 +26,9 @@ public class OrderServiceImpl implements OrderService {
 		return inProcessOrderList;
 	}
 
+	public OrderServiceImpl(XmlFulfilmentOrderRepo xmlOrderRepo) {
+		super();
+		this.xmlOrderRepo = xmlOrderRepo;
+	}
+
 }
