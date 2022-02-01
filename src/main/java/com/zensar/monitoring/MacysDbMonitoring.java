@@ -26,7 +26,7 @@ public class MacysDbMonitoring {
 	
 	@ReadOperation
 	public Map<String,String> dbMonitoring(){
-		Map<String,String> orderMap=new HashMap();
+		Map<String,String> orderMap=new HashMap<String, String>();
 		List<JsonOrderDomain> jsonOrderlist = jsonRepo.findAll();
 		Integer jsonSize = jsonOrderlist.size();
 		List<XmlFulfilmentOrderDomain> xmlOrderlist = xmlRepo.findAll();
